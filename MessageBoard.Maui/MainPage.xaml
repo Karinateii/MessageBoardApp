@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MessageBoard.Maui.MainPage"
+             Title="Message Board"
+             BackgroundColor="#ffffff">
+
+    <StackLayout Padding="20" Spacing="15">
+        <!-- App Header -->
+        <Label Text="Message Board"
+               FontSize="28"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="#333333"
+               Margin="0,20" />
+
+        <!-- Logout Button -->
+        <Button Text="Logout"
+                Clicked="OnLogoutButtonClicked"
+                BackgroundColor="#eeeeee"
+                TextColor="#333333"
+                CornerRadius="20"
+                Padding="10,5"
+                HorizontalOptions="Center" />
+
+        <!-- Input Field -->
+        <Entry x:Name="MessageEntry"
+               Placeholder="Type your message here"
+               BackgroundColor="#f4f4f4"
+               TextColor="#333333"
+               Margin="0,10"
+               HeightRequest="50" />
+
+        <!-- Post Button -->
+        <Button Text="Post"
+                Clicked="OnPostButtonClicked"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                CornerRadius="20"
+                Padding="10,5"
+                HorizontalOptions="Center" />
+
+        <!-- Clear All Button -->
+        <Button Text="Clear All"
+                Clicked="OnClearAllButtonClicked"
+                BackgroundColor="#f44336"
+                TextColor="White"
+                CornerRadius="20"
+                Padding="10,5"
+                HorizontalOptions="Center" />
+
+        <!-- Displayed Messages -->
+        <Label Text="Messages:"
+               FontAttributes="Bold"
+               TextColor="#333333"
+               Margin="0,10,0,5" />
+
+        <ListView x:Name="MessagesListView"
+                  HasUnevenRows="True"
+                  SeparatorVisibility="Default"
+                  SeparatorColor="#dddddd">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Frame BackgroundColor="White"
+                               BorderColor="#ddd"
+                               CornerRadius="10"
+                               Padding="15"
+                               Margin="0,5"
+                               HasShadow="True">
+                            <StackLayout Spacing="10">
+                                <!-- Display username -->
+                                <Label Text="{Binding UserName}"
+                                       FontSize="Small"
+                                       TextColor="#555555"
+                                       FontAttributes="Bold" />
+                                <Label Text="{Binding Text}"
+                                       FontSize="Medium"
+                                       TextColor="#333333"
+                                       LineBreakMode="WordWrap" />
+                                <Label Text="{Binding Timestamp, StringFormat='Posted on {0:MMM dd, yyyy at h:mm tt}'}"
+                                       FontSize="Small"
+                                       TextColor="#777777"
+                                       HorizontalOptions="End" />
+                            </StackLayout>
+                        </Frame>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

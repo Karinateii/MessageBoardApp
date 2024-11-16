@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MessageBoard.Maui.RegistrationPage"
+             Title="Register"
+             BackgroundColor="#ffffff">
+
+    <StackLayout Padding="30" Spacing="20">
+        <!-- Header -->
+        <Label Text="Create an Account"
+               FontSize="32"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="#333333"
+               Margin="0,40,0,10" />
+
+        <!-- Username Entry with Frame -->
+        <Frame BackgroundColor="#f4f4f4"
+               CornerRadius="10"
+               HasShadow="False">
+            <Entry x:Name="UserNameEntry"
+                   Placeholder="Username"
+                   TextColor="#333333"
+                   BackgroundColor="Transparent" />
+        </Frame>
+
+        <!-- Password Entry with Frame -->
+        <Frame BackgroundColor="#f4f4f4"
+               CornerRadius="10"
+               HasShadow="False">
+            <Entry x:Name="PasswordEntry"
+                   Placeholder="Password"
+                   IsPassword="True"
+                   TextColor="#333333"
+                   BackgroundColor="Transparent" />
+        </Frame>
+
+        <!-- Register Button -->
+        <Button Text="Register"
+                Clicked="OnRegisterButtonClicked"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                CornerRadius="20"
+                Padding="10,5"
+                HorizontalOptions="Center" />
+
+        <!-- Go to Login Button -->
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+            <Label Text="Already have an account?"
+                   TextColor="#666666" />
+            <Button Text="Login"
+                    Clicked="OnGoToLoginClicked"
+                    BackgroundColor="Transparent"
+                    TextColor="#4CAF50"
+                    Padding="0"
+                    FontAttributes="Bold" 
+                    Margin="0,-13,0,0"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
